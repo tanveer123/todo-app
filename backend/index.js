@@ -43,7 +43,7 @@ app.get('/', async (req, res) => {
 	  })*/
 });
 
-todoRoutes.route('/:id').get(async function(req, res) {
+/*todoRoutes.route('/:id').get(async function(req, res) {
     let id = req.params.id;
     try {
     	const todo = await Todo.findById(id);
@@ -95,7 +95,7 @@ todoRoutes.route('/update/:id').post(async function(req, res) {
     
 });
 
-app.use('/todos', todoRoutes);
+app.use('/todos', todoRoutes);*/
 
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
