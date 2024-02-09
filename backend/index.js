@@ -24,7 +24,7 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })*/
 
-app.get(async function(req, res) {
+app.get('/',async function(req, res) {
     try {
     	/*const todos = await Todo.find();
     	res.json(todos);*/
