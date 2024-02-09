@@ -7,7 +7,14 @@ const mongoose = require('mongoose');
 const PORT = 4000;
 let Todo = require('./Todo');
 
-app.use(cors());
+const corsOptions = {
+    //origin: "http://localhost:3000" // frontend URI (ReactJS)
+    origin: "https://todo-app-back-murex.vercel.app",
+    methods: ["POST","GET"],
+    credentials: true
+}
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
