@@ -18,11 +18,11 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
-mongoose.connect('mongodb+srv://admin:<admin@123>@cluster0.shwdnpa.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true });
+/*mongoose.connect('mongodb+srv://admin:<admin@123>@cluster0.shwdnpa.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true });
 const connection = mongoose.connection;
 connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
-})
+})*/
 
 todoRoutes.route('/').get(async function(req, res) {
     try {
