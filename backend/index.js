@@ -40,6 +40,7 @@ app.get('/', async (req, res) => {
     try {
     	//const todos = await Todo.find();
     	//res.json(todos);
+    	res.header("Access-Control-Allow-Origin", "*");
         res.status(201).json({ message: "Connected to Backend!" });
     } catch (err) {
 	    console.log(err);
