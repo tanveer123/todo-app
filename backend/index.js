@@ -17,7 +17,7 @@ let Todo = require('./Todo');
 
 app.use(cors(corsOptions));*/
 
-app.use(cors(), function(req, res, next) {
+/*app.use(cors(), function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://todo-app-front-fawn.vercel.app"); // update to match the domain you will make the request from
   res.header(
     "Access-Control-Allow-Headers",
@@ -26,7 +26,7 @@ app.use(cors(), function(req, res, next) {
   next();
 });
 
-app.use(cors());
+app.use(cors());*/
 app.use(bodyParser.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
