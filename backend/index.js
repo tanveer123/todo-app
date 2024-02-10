@@ -22,7 +22,7 @@ require("dotenv").config();
 // Allow CORS middleware
 const allowCors = fn => async (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', 'https://todo-app-front-fawn.vercel.app');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
   res.setHeader(
     'Access-Control-Allow-Headers',
