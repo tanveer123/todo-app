@@ -4,30 +4,19 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const PORT = 4000;
-
-// Importing Todo model
-const Todo = require('./Todo');
-
-// Configuring environment variables
+let Todo = require('./Todo');
 require("dotenv").config();
 
-// CORS configuration
-const corsOptions = {
-    origin: "https://todo-app-front-fawn.vercel.app",
-    methods: ["POST", "GET"],
-    credentials: true
-};
-app.use(cors(corsOptions));
+// Configure CORS
+app.use(cors());
 
 // Body parser middleware
 app.use(bodyParser.json());
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-const connection = mongoose.connection;
-connection.once('open', () => {
-    console.log("MongoDB database connection established successfully");
-});
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("MongoDB connected"))
+    .catch(err => console.log(err));
 
 // Define routes
 app.get('/', async (req, res) => {
@@ -40,6 +29,6 @@ app.get('/', async (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on Port: ${PORT}`);
+app.listen(PORT, function() {
+    console.log("Server is running on Port: " + PORT);
 });
