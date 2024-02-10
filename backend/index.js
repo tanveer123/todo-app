@@ -8,14 +8,25 @@ const PORT = 4000;
 let Todo = require('./Todo');
 //require("dotenv").config();
 
-const corsOptions = {
+/*const corsOptions = {
     //origin: "http://localhost:3000" // frontend URI (ReactJS)
     origin: "https://todo-app-front-fawn.vercel.app",
     methods: ["POST","GET"],
     credentials: true
 }
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions));*/
+
+app.use(cors(), function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://todo-app-front-fawn.vercel.app"); // update to match the domain you will make the request from
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
+app.use(cors());
 app.use(bodyParser.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
