@@ -33,8 +33,7 @@ export default class TodosList extends Component {
             })*/
 	    useEffect(() => {
         fetch("https://todo-app-back-murex.vercel.app")
-            .then((res) => res.json())
-            .then((data) => setMessage(data.message));
+            .then((res) => res.json());
     }, []);
     }
 
