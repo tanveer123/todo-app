@@ -21,14 +21,14 @@ export default class TodosList extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://todo-app-back-murex.vercel.app/todos/')
+        await fetch('https://todo-app-back-murex.vercel.app/todos/')
             .then(response => {
                 this.setState({ todos: response.data });
                 //console.log(response.data);
             })
-            .catch(function (error){
+            /*.catch(function (error){
                 console.log(error);
-            })
+            })*/
     }
 
     todoList() {
