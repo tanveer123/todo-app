@@ -21,8 +21,8 @@ export default class TodosList extends Component {
     }
 
     componentDidMount() {
-	axios.defaults.withCredentials = true;
-        axios.get('https://todo-app-back-murex.vercel.app')
+	//axios.defaults.withCredentials = true;
+        fetch('https://todo-app-back-murex.vercel.app/')
             .then(response => {
                 this.setState({ todos: response.data });
                 //console.log(response.data);
