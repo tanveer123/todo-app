@@ -2,7 +2,7 @@
   "name": "todo-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://todo-app-front-fawn.vercel.app",
+  "proxy": "https://todo-app-back-murex.vercel.app",
   "main": "index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
