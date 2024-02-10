@@ -36,12 +36,12 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })*/
 
-app.get('/todos/', async (req, res) => {
+app.get('/todos/', (req, res) => {
     try {
-    	const todos = await Todo.find();
-    	res.json(todos);
+    	//const todos = await Todo.find();
+    	//res.json(todos);
     	//res.header("Access-Control-Allow-Origin", "*");
-        //res.status(201).json({ message: "Connected to Backend!" });
+        res.status(201).json({ message: "Connected to Backend!" });
     } catch (err) {
 	    console.log(err);
 	  }
