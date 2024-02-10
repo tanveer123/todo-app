@@ -6,7 +6,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const PORT = 4000;
 let Todo = require('./Todo');
-require("dotenv").config();
+//require("dotenv").config();
 
 const corsOptions = {
     //origin: "http://localhost:3000" // frontend URI (ReactJS)
