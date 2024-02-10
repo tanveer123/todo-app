@@ -29,7 +29,7 @@ export default class TodosList extends Component {
             /*.catch(function (error){
                 console.log(error);
             })*/
-	    return axios('https://todo-app-back-murex.vercel.app/todos/', {
+	    axios('https://todo-app-back-murex.vercel.app/todos/', {
 	      method: 'GET',
 	      mode: 'no-cors',
 	      headers: {
