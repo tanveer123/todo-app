@@ -21,7 +21,7 @@ export default class TodosList extends Component {
     }
 
     componentDidMount() {
-        axios.get('/todos/')
+        axios.get('https://todo-app-back-murex.vercel.app/todos/')
             .then(response => {
                 this.setState({ todos: response.data });
                 //console.log(response.data);
