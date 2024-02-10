@@ -26,9 +26,9 @@ export default class TodosList extends Component {
                 this.setState({ todos: response.data });
                 //console.log(response.data);
             })
-            /*.catch(function (error){
+            .catch(function (error){
                 console.log(error);
-            })*/
+            })
     }
 
     todoList() {
