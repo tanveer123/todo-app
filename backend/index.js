@@ -27,7 +27,7 @@ connection.once('open', function() {
 
 app.get('/todos/', async (req, res) => {
     try {
-    	const todos = await Todo.find();
+    	//const todos = await Todo.find();
     	//res.json(todos);
         res.status(201).json({ message: "Connected to Backend!" });
     } catch (err) {
