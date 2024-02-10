@@ -9,7 +9,7 @@ const Todo = props => (
         <td>{props.todo.todo_responsible}</td>
         <td>{props.todo.todo_priority}</td>
         <td>
-            <Link to={"/edit/"+props.todo._id}>Edit</Link>
+            <Link to={"https://todo-app-back-murex.vercel.app/edit/"+props.todo._id}>Edit</Link>
         </td>
     </tr>
 )
@@ -21,7 +21,7 @@ export default class TodosList extends Component {
     }
 
     componentDidMount() {
-        axios.get('/todos/')
+        axios.get('https://todo-app-back-murex.vercel.app/todos/')
             .then(response => {
                 this.setState({ todos: response.data });
                 //console.log(response.data);
