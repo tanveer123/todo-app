@@ -1,5 +1,3 @@
-
-
 const express = require('express');
 const app = express();
 const todoRoutes = express.Router();
@@ -10,34 +8,14 @@ const PORT = 4000;
 let Todo = require('./Todo');
 require("dotenv").config();
 
-/*const corsOptions = {
+const corsOptions = {
     //origin: "http://localhost:3000" // frontend URI (ReactJS)
     origin: "https://todo-app-front-fawn.vercel.app",
     methods: ["POST","GET"],
     credentials: true
-}*/
+}
 
-//app.use(cors(corsOptions));
-
-// Allow CORS middleware
-const allowCors = fn => async (req, res) => {
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', 'https://todo-app-front-fawn.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
-  }
-  return await fn(req, res);
-};
-
-// Apply CORS middleware to all routes
-app.use(allowCors);
-
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
