@@ -36,7 +36,11 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })*/
 
-app.get('/todos/', (req, res) => {
+app.listen(PORT, function() {
+    console.log("Server is running on Port: " + PORT);
+});
+
+app.get('/', (req, res) => {
     try {
     	//const todos = await Todo.find();
     	//res.json(todos);
@@ -108,7 +112,3 @@ todoRoutes.route('/update/:id').post(async function(req, res) {
 });
 
 app.use('/todos', todoRoutes);*/
-
-app.listen(PORT, function() {
-    console.log("Server is running on Port: " + PORT);
-});
