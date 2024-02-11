@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 //import Todo from './Todo';
@@ -21,14 +22,19 @@ export default class TodosList extends Component {
     }
 
     componentDidMount() {
-	fetch('https://todo-app-back-murex.vercel.app/todos/')
+	/*fetch('https://todo-app-back-murex.vercel.app/todos/')
             .then(response => {
                 //this.setState({ todos: response.data });
                 console.log(response.data);
-            })
+            })*/
             /*.catch(function (error){
                 console.log(error);
             })*/
+	    useEffect(() => {
+	        fetch("https://todo-app-back-murex.vercel.app/todos/")
+	            .then((res) => res.json())
+	            //.then((data) => setMessage(data.message));
+	    }, []);
     }
 
     todoList() {
