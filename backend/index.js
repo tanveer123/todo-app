@@ -41,14 +41,14 @@ app.listen(PORT, function() {
 });
 
 app.get('/', (req, res) => {
-    try {
+    //try {
     	//const todos = await Todo.find();
     	//res.json(todos);
     	//res.header("Access-Control-Allow-Origin", "*");
         res.status(201).json({ message: "Connected to Backend!" });
-    } catch (err) {
+    /*} catch (err) {
 	    console.log(err);
-	  }
+	  }*/
 
     /*Todo.find().then((err, todos) => {
 	    console.log("result")
