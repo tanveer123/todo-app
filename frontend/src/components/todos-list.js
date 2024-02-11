@@ -22,7 +22,7 @@ export default class TodosList extends Component {
     }
 
     componentDidMount() {
-	fetch('https://todo-app-back-murex.vercel.app/todos/')
+	fetch('https://todo-app-back-murex.vercel.app/')
 	    .then((res) => res.json())	
             .then((json) => {
                 //this.setState({ todos: response.data });
