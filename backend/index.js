@@ -40,23 +40,8 @@ app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
 });
 
-app.get('/', (req, res) => {
-    //try {
-    	//const todos = await Todo.find();
-    	//res.json(todos);
-    	//res.header("Access-Control-Allow-Origin", "*");
-        res.status(201).json({ message: "Connected to Backend!" });
-    /*} catch (err) {
-	    console.log(err);
-	  }*/
-
-    /*Todo.find().then((err, todos) => {
-	    console.log("result")
-	    if (err) {
-	      res.send(err)
-	    }
-	    res.send(todos)
-	  })*/
+app.get("/", (req, res) => {
+    res.status(201).json({ message: "Connected to Backend!" });
 });
 
 /*todoRoutes.route('/:id').get(async function(req, res) {
