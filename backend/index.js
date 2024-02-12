@@ -24,9 +24,9 @@ app.use(cors(corsOptions));*/
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   next();
-});
+});*/
 
-app.use(cors());*/
+app.use(cors());
 app.use(bodyParser.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
