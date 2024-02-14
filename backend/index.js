@@ -10,7 +10,7 @@ let Todo = require('./Todo');
 
 const corsOptions = {
     //origin: "http://localhost:3000" // frontend URI (ReactJS)
-    origin: "https://todo-app-front-fawn.vercel.app",
+    origin: "https://todo-app-back-murex.vercel.app",
     methods: ["POST","GET"],
     credentials: true
 }
