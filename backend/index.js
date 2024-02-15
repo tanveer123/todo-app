@@ -27,7 +27,7 @@ app.use(cors(corsOptions));*/
 });*/
 
 //app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
 mongoose.connect('mongodb+srv://admin:<admin@123>@cluster0.shwdnpa.mongodb.net/?retryWrites=true&w=majority');
