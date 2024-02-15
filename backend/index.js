@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const todoRoutes = express.Router();
+//const todoRoutes = express.Router();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -30,7 +30,7 @@ app.use(cors(corsOptions));*/
 app.use(express.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
-//mongoose.connect('mongodb+srv://admin:<admin@123>@cluster0.shwdnpa.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://admin:<admin@123>@cluster0.shwdnpa.mongodb.net/?retryWrites=true&w=majority');
 /*const connection = mongoose.connection;
 connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
