@@ -4,7 +4,6 @@ const todoRoutes = express.Router();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-import { MongoClient } from "mongodb";
 const PORT = 4000;
 let Todo = require('./Todo');
 require("dotenv").config();
