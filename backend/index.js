@@ -39,7 +39,7 @@ app.use(cors(corsConf));
 app.use(express.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
-//mongoose.connect('mongodb+srv://admin:<admin@123>@cluster0.shwdnpa.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://vercel-admin-user-65c761fce555e205e66b9eac:hBCEjLknQT9DaMA3@cluster0.shwdnpa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 /*const connection = mongoose.connection;
 connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
