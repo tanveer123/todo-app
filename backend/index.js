@@ -40,13 +40,11 @@ app.use(express.json());
     console.log("MongoDB database connection established successfully");
 })*/
 
-const client = new MongoClient(process.env.MONGODB_URI, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
+const opts = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  };
+const client = new MongoClient(process.env.MONGODB_URI, opts);
 
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
@@ -56,7 +54,7 @@ app.get("/",  (req, res) => {
 	//const todos = Todo.find();
     /*res.json(todos);*/
     //res.status(201).json({ data: process.env.MONGODB_URI });
-    res.status(201).json({ message: MongoClient });
+    res.status(201).json({ message: client });
 	/*try {
 	    // Connect the client to the server	(optional starting in v4.7)
 	    await client.connect();
