@@ -40,7 +40,7 @@ app.use(express.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
 mongoose.connect(process.env.MONGODB_URI);
-//const connection = mongoose.connection;
+const connection = mongoose.connection;
 /*connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })*/
@@ -57,9 +57,9 @@ app.listen(PORT, function() {
 });
 
 app.get("/",  (req, res) => {
-	const todos = Todo.find();
+	//const todos = Todo.find();
     /*res.json(todos);*/
-    res.status(201).json({ data: todos });
+    res.status(201).json({ data: connection });
     //res.status(201).json({ message: process.env.MONGODB_URI });
 });
 
