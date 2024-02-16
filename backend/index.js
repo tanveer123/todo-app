@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-//const todoRoutes = express.Router();
+const todoRoutes = express.Router();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
