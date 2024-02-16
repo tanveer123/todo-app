@@ -8,6 +8,7 @@ import { MongoClient } from "mongodb";
 const PORT = 4000;
 let Todo = require('./Todo');
 require("dotenv").config();
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
 /*const corsOptions = {
     //origin: "http://localhost:3000" // frontend URI (ReactJS)
@@ -27,28 +28,26 @@ const corsConf = {
 
 app.use(cors(corsConf));
 
-/*app.use(cors(), function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://todo-app-front-fawn.vercel.app"); // update to match the domain you will make the request from
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});*/
-
-//app.use(cors());
 app.use(express.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
-mongoose.connect(process.env.MONGODB_URI).then(() => {
+/*mongoose.connect(process.env.MONGODB_URI).then(() => {
     console.log(process.env.MONGODB_URI);
 }).catch(err => {
     console.log(err);
-});
+});*/
 //const connection = mongoose.connection;
 /*connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })*/
+
+const client = new MongoClient(process.env.MONGODB_URI, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
 
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
@@ -59,6 +58,16 @@ app.get("/",  (req, res) => {
     /*res.json(todos);*/
     //res.status(201).json({ data: process.env.MONGODB_URI });
     //res.status(201).json({ message: process.env.MONGODB_URI });
+	try {
+	    // Connect the client to the server	(optional starting in v4.7)
+	    await client.connect();
+	    // Send a ping to confirm a successful connection
+	    await client.db("tasks").command({ ping: 1 });
+	    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+	  } finally {
+	    // Ensures that the client will close when you finish/error
+	    await client.close();
+	  }
 });
 
 /*todoRoutes.route('/:id').get(async function(req, res) {
