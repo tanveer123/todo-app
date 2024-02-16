@@ -40,8 +40,8 @@ app.use(express.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
 mongoose.connect('mongodb+srv://vercel-admin-user-65c761fce555e205e66b9eac:hBCEjLknQT9DaMA3@cluster0.shwdnpa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
-/*const connection = mongoose.connection;
-connection.once('open', function() {
+const connection = mongoose.connection;
+/*connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })*/
 /*mongoose.connect('mongodb+srv://admin:<admin@123>@cluster0.shwdnpa.mongodb.net/?retryWrites=true&w=majority').then(() => {
@@ -60,7 +60,7 @@ app.get("/", (req, res) => {
 	/*const todos = await Todo.find();
     res.json(todos);
     res.status(201).json({ data: todos });*/
-    res.status(201).json({ message: "Connected to Backend!" });
+    res.status(201).json({ message: connection });
 });
 
 /*todoRoutes.route('/:id').get(async function(req, res) {
