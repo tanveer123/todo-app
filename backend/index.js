@@ -40,7 +40,11 @@ app.use(cors(corsConf));
 app.use(express.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI).then(() => {
+    console.log(process.env.MONGODB_URI);
+}).catch(err => {
+    console.log(err);
+});
 //const connection = mongoose.connection;
 /*connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
