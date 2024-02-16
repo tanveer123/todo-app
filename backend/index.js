@@ -60,7 +60,7 @@ app.get("/", (req, res) => {
 	/*const todos = await Todo.find();
     res.json(todos);
     res.status(201).json({ data: todos });*/
-    res.status(201).json({ message: connection });
+    res.status(201).json({ message: PORT });
 });
 
 /*todoRoutes.route('/:id').get(async function(req, res) {
