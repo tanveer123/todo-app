@@ -40,7 +40,7 @@ app.use(cors(corsConf));
 app.use(express.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
-//mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI);
 //const connection = mongoose.connection;
 /*connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
@@ -54,16 +54,6 @@ app.use(express.json());
     console.log(err);
 });*/
 
-const opts = {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-};
-
-// Connect to cluster
-let client = new MongoClient(process.env.MONGODB_URI, opts);
-await client.connect();
-//let db = client.db(MONGODB_DB);
-
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
 });
@@ -71,7 +61,7 @@ app.listen(PORT, function() {
 app.get("/",  (req, res) => {
 	//const todos = Todo.find();
     /*res.json(todos);*/
-    res.status(201).json({ data: client });
+    res.status(201).json({ data: process.env.MONGODB_URI });
     //res.status(201).json({ message: process.env.MONGODB_URI });
 });
 
