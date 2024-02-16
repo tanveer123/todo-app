@@ -57,7 +57,10 @@ app.listen(PORT, function() {
 });
 
 app.get("/", (req, res) => {
-    res.status(201).json({ message: "Connected to Backend!" });
+	const todos = await Todo.find();
+    res.json(todos);
+    res.status(201).json({ data: todos });
+    //res.status(201).json({ message: "Connected to Backend!" });
 });
 
 /*todoRoutes.route('/:id').get(async function(req, res) {
