@@ -52,12 +52,12 @@ app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
 });
 
-app.get("/",  async (req, res) => {
+app.get("/",  (req, res) => {
 	//const todos = Todo.find();
     /*res.json(todos);*/
     //res.status(201).json({ data: process.env.MONGODB_URI });
-    //res.status(201).json({ message: process.env.MONGODB_URI });
-	try {
+    res.status(201).json({ message: client });
+	/*try {
 	    // Connect the client to the server	(optional starting in v4.7)
 	    await client.connect();
 	    // Send a ping to confirm a successful connection
@@ -66,7 +66,7 @@ app.get("/",  async (req, res) => {
 	  } finally {
 	    // Ensures that the client will close when you finish/error
 	    await client.close();
-	  }
+	  }*/
 });
 
 /*todoRoutes.route('/:id').get(async function(req, res) {
