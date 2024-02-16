@@ -49,14 +49,6 @@ mongoose.connect(process.env.MONGODB_URI).then(() => {
 /*connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })*/
-/*mongoose.connect('mongodb+srv://admin:<admin@123>@cluster0.shwdnpa.mongodb.net/?retryWrites=true&w=majority').then(() => {
-    const PORT = 4000
-    app.listen(PORT, () => {
-        console.log(`App is Listening on PORT ${PORT}`);
-    })
-}).catch(err => {
-    console.log(err);
-});*/
 
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
