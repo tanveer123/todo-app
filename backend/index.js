@@ -50,8 +50,8 @@ app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
 });
 
-app.get("/",  (req, res) => {
-	const todos = Todo.find();
+app.get("/",  async (req, res) => {
+	const todos = await Todo.find();
     res.json(todos);
     //res.status(201).json({ data: process.env.MONGODB_URI });
     res.status(201).json({ message: "hello" });
