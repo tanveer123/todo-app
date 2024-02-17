@@ -31,7 +31,8 @@ app.use(express.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
 mongoose.connect(process.env.MONGODB_URI).then(() => {
-    console.log(process.env.MONGODB_URI);
+	const connection = mongoose.connection;
+    console.log(connection);
 }).catch(err => {
     console.log(err);
 });
