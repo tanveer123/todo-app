@@ -54,7 +54,7 @@ app.get("/",  (req, res) => {
 	const todos = Todo.find();
     //res.json(todos);
     //res.status(201).json({ data: process.env.MONGODB_URI });
-    res.status(201).json({ message: "hello" });
+    res.status(201).json({ message: todos });
 	/*try {
 	    // Connect the client to the server	(optional starting in v4.7)
 	    await client.connect();
