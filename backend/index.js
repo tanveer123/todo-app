@@ -30,31 +30,31 @@ app.use(cors(corsConf));
 app.use(express.json());
 
 //mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
-/*mongoose.connect(process.env.MONGODB_URI).then(() => {
+mongoose.connect(process.env.MONGODB_URI).then(() => {
     console.log(process.env.MONGODB_URI);
 }).catch(err => {
     console.log(err);
-});*/
+});
 //const connection = mongoose.connection;
 /*connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })*/
 
-const opts = {
+/*const opts = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   };
-const client = new MongoClient(process.env.MONGODB_URI, opts);
+const client = new MongoClient(process.env.MONGODB_URI, opts);*/
 
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
 });
 
 app.get("/",  (req, res) => {
-	//const todos = Todo.find();
+	const todos = Todo.find();
     /*res.json(todos);*/
     //res.status(201).json({ data: process.env.MONGODB_URI });
-    res.status(201).json({ message: client });
+    res.status(201).json({ message: todos });
 	/*try {
 	    // Connect the client to the server	(optional starting in v4.7)
 	    await client.connect();
