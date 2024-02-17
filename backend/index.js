@@ -52,7 +52,7 @@ app.listen(PORT, function() {
 
 app.get("/",  (req, res) => {
 	const todos = Todo.find();
-    /*res.json(todos);*/
+    res.json(todos);
     //res.status(201).json({ data: process.env.MONGODB_URI });
     res.status(201).json({ message: "hello" });
 	/*try {
